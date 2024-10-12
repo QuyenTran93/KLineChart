@@ -273,13 +273,14 @@ export default class IndicatorTooltipView extends View<YAxis> {
     let positionX = 0
 
     function updateRectSize (width: number, height: number): void {
-      rectWidth = rectWidth + width > maxWidth ? rectWidth : rectWidth + width
+      rectWidth = Math.max(rectWidth, positionX + width)
       rectHeight = Math.max(rectHeight, height)
-      if (positionX + width > maxWidth) {
+      if (rectWidth > maxWidth) {
         rectHeight += height
-        positionX = 0
+        positionX = width
+        rectWidth -= width
       } else {
-        positionX += rectWidth
+        positionX += width
       }
     }
 
