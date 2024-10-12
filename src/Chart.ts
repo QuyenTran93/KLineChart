@@ -133,6 +133,8 @@ export interface Chart {
   unsubscribeAction: (type: ActionType, callback?: ActionCallback) => void
   getConvertPictureUrl: (includeOverlay?: boolean, type?: string, backgroundColor?: string) => string
   resize: () => void
+  getThousandsSeparator: () => string
+  getDecimalFoldThreshold: () => number
 }
 
 export default class ChartImp implements Chart {
@@ -1043,6 +1045,14 @@ export default class ChartImp implements Chart {
 
   resize (): void {
     this.adjustPaneViewport(true, true, true, true, true)
+  }
+
+  getThousandsSeparator (): string {
+    return this.getChartStore().getThousandsSeparator()
+  }
+
+  getDecimalFoldThreshold (): number {
+    return this.getChartStore().getDecimalFoldThreshold()
   }
 
   destroy (): void {
