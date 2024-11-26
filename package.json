@@ -1,7 +1,7 @@
 {
-  "name": "klinecharts",
-  "version": "9.8.10",
-  "description": "Lightweight k-line chart built with html5 canvas",
+  "name": "@quyentran93/klinecharts",
+  "version": "9.8.14",
+  "description": "forked from klinecharts/KLineChart",
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",
   "unpkg": "./dist/umd/klinecharts.min.js",
@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/klinecharts/KLineChart"
+    "url": "https://github.com/QuyenTran93/KLineChart"
   },
   "bugs": {
-    "url": "https://github.com/klinecharts/KLineChart/issues"
+    "url": "https://github.com/QuyenTran93/KLineChart/issues"
   },
   "homepage": "https://klinecharts.com/",
   "keywords": [
