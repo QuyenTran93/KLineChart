@@ -1,6 +1,6 @@
 {
   "name": "@quyentran93/klinecharts",
-  "version": "9.8.14",
+  "version": "9.8.15",
   "description": "forked from klinecharts/KLineChart",
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",
