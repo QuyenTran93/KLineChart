@@ -6,24 +6,26 @@
 
   const sponsors = [
     {
-      "name": "Northstar",
-      "logo": "/images/sponsors/Northstar.png",
-      "website": "https://northstar.quantit.tech:8443/",
-      "amount": 1600
-    },
-    {
       "name": "flameOnYou",
       "text": "flameOnYou",
       "logo": "/images/sponsors/flameOnYou.jpg",
-      "website": "https://github.com/flameOnYou",
-      "amount": 2100
+      "website": "https://github.com/flameOnYou"
+    },
+    {
+      "name": "Northstar",
+      "logo": "/images/sponsors/Northstar.png",
+      "website": "https://northstar.quantit.tech:8443/"
+    },
+    {
+      "name": "FlowLong",
+      "logo": "/images/sponsors/FlowLong.png",
+      "website": "https://flowlong.aizuda.com"
     },
     {
       "name": "糊涂",
       "text": "糊涂",
       "logo": "/images/sponsors/hutu.png",
-      "website": "https://hutu.live",
-      "amount": 18.8
+      "website": "https://hutu.live"
     }
   ]
 
@@ -35,11 +37,12 @@
 
   for (let i = 3; i < sponsors.length; i++) {
     const s = sponsors[i]
-    if (s.amount >= 5000) {
-      pt.push(s)
-    } else {
-      gd.push(s)
-    }
+    pt.push(s)
+    // if (s.amount >= 5000) {
+      
+    // } else {
+    //   gd.push(s)
+    // }
   }
 
   const platinum = ref(pt)
@@ -95,7 +98,10 @@
 
 <style scoped>
   .sponsor {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    gap: 4px;
   }
 
   .sponsor h4 {
@@ -108,7 +114,7 @@
   .sponsor-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
   }
 
   .sponsor-grid-item {
@@ -156,7 +162,7 @@
   }
 
   .sponsor-gold-grid .item {
-    width: calc((100% - 18px) / 4);
+    width: calc((100% - 12px) / 4);
     height: 50px;
   }
 
@@ -191,11 +197,8 @@
   }
 
   @media (min-width: 640px) {
-    .sponsor-grid {
-      gap: 4px;
-    }
     .sponsor-platinum-grid .item {
-      width: calc((100% - 12px) / 3);
+      width: calc((100% - 8px) / 3);
     }
 
     .sponsor-gold-grid .item {
@@ -214,7 +217,7 @@
     }
 
     .sponsor-platinum-grid .item {
-      width: calc((100% - 18px) / 4);
+      width: calc((100% - 12px) / 4);
     }
 
     .sponsor-gold-grid .item {
