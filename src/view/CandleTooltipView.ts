@@ -12,6 +12,7 @@
  * limitations under the License.
  */
 
+import type Coordinate from '../common/Coordinate'
 import {
   type TooltipLegend, type TooltipLegendChild, TooltipShowType, CandleTooltipRectPosition, PolygonType
 } from '../common/Styles'
@@ -104,25 +105,31 @@ export default class CandleTooltipView extends IndicatorTooltipView {
 
       const [leftFeatures, middleFeatures, rightFeatures] = this.classifyTooltipFeatures(tooltipStyles.features)
 
-      prevRowHeight = this.drawStandardTooltipFeatures(
-        ctx, leftFeatures, coordinate,
-        null, left, prevRowHeight, maxWidth
+      const [measureResult, prevCalcHeight] = this.drawStandardTooltipRect(ctx, leftFeatures, '', '', middleFeatures, legends, rightFeatures, coordinate, maxWidth, tooltipTextStyles, tooltipStyles.rect)
+
+      this.drawStandardTooltipFeatures(
+        ctx, leftFeatures,
+        null, measureResult[0] as Coordinate[]
       )
-      prevRowHeight = this.drawStandardTooltipFeatures(
-        ctx, middleFeatures, coordinate,
-        null, left, prevRowHeight, maxWidth
+
+      this.drawStandardTooltipFeatures(
+        ctx, middleFeatures,
+        null, measureResult[2] as Coordinate[]
       )
+
       if (legends.length > 0) {
-        prevRowHeight = this.drawStandardTooltipLegends(
-          ctx, legends, coordinate, left,
-          prevRowHeight, maxWidth, tooltipTextStyles
+        this.drawStandardTooltipLegends(
+          ctx, legends,
+          tooltipTextStyles, measureResult[3] as Array<[Coordinate, Coordinate]>
         )
       }
 
-      prevRowHeight = this.drawStandardTooltipFeatures(
-        ctx, rightFeatures, coordinate,
-        null, left, prevRowHeight, maxWidth
+      this.drawStandardTooltipFeatures(
+        ctx, rightFeatures,
+        null, measureResult[4] as Coordinate[]
       )
+
+      prevRowHeight = prevCalcHeight
     }
     return coordinate.y + prevRowHeight
   }

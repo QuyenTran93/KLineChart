@@ -57,8 +57,13 @@ export function drawRect (ctx: CanvasRenderingContext2D, attrs: RectAttrs | Rect
     borderColor = 'transparent',
     borderStyle = LineType.Solid,
     borderRadius: r = 0,
-    borderDashedValue = [2, 2]
+    borderDashedValue = [2, 2],
+    tooltipOverlayOpacity
   } = styles
+  // modify the alpha value
+  if (typeof tooltipOverlayOpacity !== 'undefined' && tooltipOverlayOpacity !== 1) {
+    ctx.globalAlpha = tooltipOverlayOpacity
+  }
   // eslint-disable-next-line @typescript-eslint/unbound-method, @typescript-eslint/no-unnecessary-condition -- ignore
   const draw = ctx.roundRect ?? ctx.rect
   const solid = (style === PolygonType.Fill || styles.style === PolygonType.StrokeFill) && (!isString(color) || !isTransparent(color))
@@ -94,6 +99,10 @@ export function drawRect (ctx: CanvasRenderingContext2D, attrs: RectAttrs | Rect
         }
       }
     })
+  }
+  // reset the alpha value
+  if (typeof tooltipOverlayOpacity !== 'undefined' && tooltipOverlayOpacity !== 1) {
+    ctx.globalAlpha = 1
   }
 }
 

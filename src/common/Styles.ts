@@ -88,6 +88,7 @@ export interface PolygonStyle {
 
 export interface RectStyle extends PolygonStyle {
   borderRadius: number | number[]
+  tooltipOverlayOpacity?: number
 }
 
 export interface TextStyle extends Padding {

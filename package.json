@@ -1,7 +1,7 @@
 {
-  "name": "klinecharts",
+  "name": "@quyentran93/klinecharts",
   "version": "10.0.0-alpha5",
-  "description": "Lightweight k-line chart built with html5 canvas",
+  "description": "forked from klinecharts/KLineChart",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",
@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/klinecharts/KLineChart"
+    "url": "https://github.com/QuyenTran93/KLineChart"
   },
   "bugs": {
-    "url": "https://github.com/klinecharts/KLineChart/issues"
+    "url": "https://github.com/QuyenTran93/KLineChart/issues"
   },
   "homepage": "https://klinecharts.com/",
   "keywords": [
@@ -105,6 +105,10 @@
   "pnpm": {
     "overrides": {
       "@rollup/plugin-eslint>eslint": "$eslint"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "vue-demi"
+    ]
   }
 }
